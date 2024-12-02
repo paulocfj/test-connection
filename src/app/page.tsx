@@ -14,6 +14,7 @@ function Connection() {
   
   const fetchData = async () => {  
     try {
+      setLoading(true);
       const response = await fetch('http://localhost:8080/api/message');
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -22,6 +23,7 @@ function Connection() {
       setData(result);
     } catch (error) {
       if (error instanceof Error) {
+          console.log(`[Error] ${error}`);
           setError(error.message);
       }
     } finally {
