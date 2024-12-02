@@ -15,6 +15,7 @@ function Connection() {
   const fetchData = async () => {  
     try {
       setLoading(true);
+      setError("");
       const response = await fetch('http://localhost:8080/api/message');
       if (!response.ok) {
         throw new Error('Network response was not ok');
